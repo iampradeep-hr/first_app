@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:first_app/widgets/list_grid.dart';
 import 'package:first_app/widgets/dismissible.dart';
 import 'package:first_app/widgets/drawer.dart';
-import 'package:first_app/widgets/bottom_sheet.dart';
+import 'package:first_app/widgets/animated_text.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primarySwatch: Colors.amber,
       ),
-      home: BottomSheetWidget(),
+      home: AnimatedText(),
     );
   }
 }
