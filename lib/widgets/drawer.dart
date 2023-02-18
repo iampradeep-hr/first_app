@@ -32,7 +32,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                       CircleAvatar(
                           radius: 50,
                           backgroundImage:
-                              AssetImage("assets/images/speed.jpg"))
+                              AssetImage("assets/images/speed.jpg")),
                     ]),
                   ),
                 )),
@@ -48,7 +48,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
       ),
       // backgroundColor: Colors.indigoAccent,
       body: Container(
-        child: Center(
+        child: const Center(
             child: Text(
           "Home",
           style: TextStyle(fontSize: 25),
