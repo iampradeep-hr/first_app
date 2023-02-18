@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:first_app/widgets/list_grid.dart';
 import 'package:first_app/widgets/dismissible.dart';
+import 'package:first_app/widgets/drawer.dart';
 
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primarySwatch: Colors.amber,
       ),
-      home: DismissibleWidget(),
+      home: DrawerWidget(),
     );
   }
 }
