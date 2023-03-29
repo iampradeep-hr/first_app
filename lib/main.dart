@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/widgets/list_grid.dart';
-import 'package:first_app/widgets/dismissible.dart';
-import 'package:first_app/widgets/drawer.dart';
-import 'package:first_app/widgets/animated_text.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'cool/glassmorphism.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -17,10 +21,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.amber,
-      ),
-      home: AnimatedText(),
+          brightness: Brightness.light,
+          primarySwatch: Colors.amber,
+          fontFamily: GoogleFonts.lexend().fontFamily),
+      home: GlassMorphismEffect(),
     );
   }
 }
