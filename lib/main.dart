@@ -1,8 +1,8 @@
+import 'package:first_app/widgets/carousel_slider_raw.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'cool/glassmorphism.dart';
 
 void main() {
   runApp(
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           primarySwatch: Colors.amber,
           fontFamily: GoogleFonts.lexend().fontFamily),
-      home: GlassMorphismEffect(),
+      home: CarouselSlider(),
     );
   }
 }
