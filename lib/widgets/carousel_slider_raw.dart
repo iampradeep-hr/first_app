@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 // CAROUSEL SLIDER FROM SCRATCH
@@ -23,9 +25,24 @@ class _CarouselSliderState extends State<CarouselSlider> {
     "https://images.unsplash.com/photo-1539185441755-769473a23570?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
   ];
 
+  late final Timer carouselTimer;
+
+  Timer getTimer() {
+    return Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (pageNo == images.length - 1) {
+        pageNo = 0;
+      }
+      _pageController.animateToPage(pageNo,
+          duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+
+      pageNo++;
+    });
+  }
+
   @override
   void initState() {
     _pageController = PageController(initialPage: 0, viewportFraction: 0.85);
+    carouselTimer = getTimer();
     super.initState();
   }
 
@@ -55,18 +72,24 @@ class _CarouselSliderState extends State<CarouselSlider> {
                     builder: (context, child) {
                       return child!;
                     },
-                    child: Container(
-                      margin: const EdgeInsets.only(
-                          right: 4, left: 4, top: 36, bottom: 12),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(24.0),
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(images[index]))),
+                    child: InkWell(
+                      onTap: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text("$index is shown")));
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(
+                            right: 4, left: 4, top: 36, bottom: 12),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(24.0),
+                            image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(images[index]))),
+                      ),
                     ),
                   );
                 },
-                itemCount: images.length,
+                // itemCount: images.length,
               ),
             ),
             const SizedBox(
